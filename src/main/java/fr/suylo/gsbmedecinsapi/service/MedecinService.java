@@ -26,8 +26,16 @@ public class MedecinService {
         return medecinRepository.findById(id);
     }
 
-    public List<Medecin> findByNomAndPrenom(String nom, String prenom){
-        return medecinRepository.findByNomAndPrenom(nom, prenom);
+    public List<Medecin> findByNomOrPrenom(String nom, String prenom){
+        return medecinRepository.findByNomOrPrenom(nom, prenom);
+    }
+
+    public List<Medecin> findByNomContainingOrPrenomContaining(String nomLike, String prenomLike){
+        return medecinRepository.findByNomContainingOrPrenomContaining(nomLike, prenomLike);
+    }
+
+    public List<Medecin> findByNom(String nom){
+        return medecinRepository.findByNom(nom);
     }
 
     public List<Medecin> findBySpe(String spe) {

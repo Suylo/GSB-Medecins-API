@@ -10,6 +10,8 @@ import java.util.List;
 public interface MedecinRepository extends JpaRepository<Medecin, Long> {
 
     /* Chercher un nom et prénom  */
-    List<Medecin> findByNomAndPrenom(String prenom, String nom);
+    List<Medecin> findByNomOrPrenom(String prenom, String nom);
+    List<Medecin> findByNom(String nom);
     List<Medecin> findBySpe(String spe);
+    List<Medecin> findByNomContainingOrPrenomContaining(String nomLike, String prenomLike);
 }
