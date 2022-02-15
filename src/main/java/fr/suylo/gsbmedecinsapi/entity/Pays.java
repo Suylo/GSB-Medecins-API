@@ -16,6 +16,9 @@ public class Pays {
     @Id
     private Long id;
     private String nom;
+    /*
+        Un pays a plusieurs département
+     */
     @OneToMany(mappedBy = "pays")
     private Set<Departement> departements;
 

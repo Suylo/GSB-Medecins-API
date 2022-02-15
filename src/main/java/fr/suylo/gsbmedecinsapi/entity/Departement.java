@@ -17,8 +17,14 @@ public class Departement {
     @Id
     private Long id;
     private String nom;
+    /*
+        Un pays possède plusieurs départements
+     */
     @ManyToOne
     private Pays pays;
+    /*
+        Un médecin possède un seul département
+     */
     @OneToMany(mappedBy = "departement")
     private Set<Medecin> medecins;
 

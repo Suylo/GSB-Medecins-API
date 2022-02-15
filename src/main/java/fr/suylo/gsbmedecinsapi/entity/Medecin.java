@@ -20,6 +20,9 @@ public class Medecin {
     private String adresse;
     private String tel;
     private String spe;
+    /*
+        Un Département à plusieurs médecins
+     */
     @ManyToOne
     private Departement departement;
 
@@ -92,6 +95,5 @@ public class Medecin {
     public void setDepartement(Departement departement) {
         this.departement = departement;
     }
-
 
 }
