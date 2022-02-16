@@ -1,7 +1,5 @@
 package fr.suylo.gsbmedecinsapi.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -14,13 +12,15 @@ public class User {
     private String id;
     private String nom;
     private String prenom;
+    private String motdepasse;
     private String adresse;
     private Date dateEmbauche;
 
-    public User(String id, String nom, String prenom, String adresse, Date dateEmbauche) {
+    public User(String id, String nom, String prenom, String motdepasse, String adresse, Date dateEmbauche) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
+        this.motdepasse = motdepasse;
         this.adresse = adresse;
         this.dateEmbauche = dateEmbauche;
     }
@@ -66,6 +66,14 @@ public class User {
 
     public void setDateEmbauche(Date dateEmbauche) {
         this.dateEmbauche = dateEmbauche;
+    }
+
+    public String getMotdepasse() {
+        return motdepasse;
+    }
+
+    public void setMotdepasse(String motdepasse) {
+        this.motdepasse = motdepasse;
     }
 
     @Override
