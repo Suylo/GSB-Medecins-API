@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -25,8 +26,17 @@ public class UserController {
         return userService.findAllUsers();
     }
 
-    @GetMapping("/{nom}")
-    public ResponseEntity<List<User>> getUserByNom(@RequestParam String nom){
-        return new ResponseEntity<>(userService.findByNom(nom), HttpStatus.OK);
+    @GetMapping("/{id}")
+    public User get(@PathVariable("id") Long id){
+        if(userService.findUserById(id).isPresent()){
+            return userService.findUserById(id).get();
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/login")
+    public ResponseEntity<User> getUserByLogin(@RequestParam String login){
+        return new ResponseEntity<User>(userService.findUserByLogin(login), HttpStatus.OK);
     }
 }

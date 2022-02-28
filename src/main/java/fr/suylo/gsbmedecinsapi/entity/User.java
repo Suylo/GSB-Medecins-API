@@ -1,23 +1,27 @@
 package fr.suylo.gsbmedecinsapi.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table
 public class User {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @NotNull
+    private String login;
     private String nom;
     private String prenom;
     private String motdepasse;
     private String adresse;
     private Date dateEmbauche;
 
-    public User(String id, String nom, String prenom, String motdepasse, String adresse, Date dateEmbauche) {
+    public User(Long id, String login, String nom, String prenom, String motdepasse, String adresse, Date dateEmbauche) {
         this.id = id;
+        this.login = login;
         this.nom = nom;
         this.prenom = prenom;
         this.motdepasse = motdepasse;
@@ -28,11 +32,19 @@ public class User {
     public User() {
     }
 
-    public String getId() {
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -76,14 +88,4 @@ public class User {
         this.motdepasse = motdepasse;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", adresse='" + adresse + '\'' +
-                ", dateEmbauche=" + dateEmbauche +
-                '}';
-    }
 }
