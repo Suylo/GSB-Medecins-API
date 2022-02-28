@@ -37,12 +37,17 @@ public class MedecinController {
 
     @GetMapping("/nom")
     public ResponseEntity<List<Medecin>> getMedecinByNom(@RequestParam String nom){
-        return new ResponseEntity<List<Medecin>>(medecinService.findByNom(nom), HttpStatus.OK);
+        return new ResponseEntity<>(medecinService.findByNom(nom), HttpStatus.OK);
     }
 
     @GetMapping("/search")
     public ResponseEntity<List<Medecin>> getMedecinByNomContaining(@RequestParam String nom, @RequestParam String prenom){
         return new ResponseEntity<>(medecinService.findByNomContainingOrPrenomContaining(nom, prenom), HttpStatus.OK);
+    }
+
+    @GetMapping("/specialite")
+    public ResponseEntity<List<Medecin>> getMedecinBySpe(@RequestParam String spe){
+        return new ResponseEntity<>(medecinService.findBySpeContaining(spe), HttpStatus.OK);
     }
 }
 

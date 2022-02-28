@@ -34,6 +34,10 @@ public class MedecinService {
         return medecinRepository.findByNomContainingOrPrenomContaining(nomLike, prenomLike);
     }
 
+    public List<Medecin> findBySpeContaining(String spe){
+        return medecinRepository.findBySpeContaining(spe);
+    }
+
     public List<Medecin> findByNom(String nom){
         return medecinRepository.findByNom(nom);
     }

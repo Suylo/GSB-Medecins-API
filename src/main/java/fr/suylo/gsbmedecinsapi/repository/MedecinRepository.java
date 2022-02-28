@@ -13,5 +13,6 @@ public interface MedecinRepository extends JpaRepository<Medecin, Long> {
     List<Medecin> findByNomOrPrenom(String prenom, String nom);
     List<Medecin> findByNom(String nom);
     List<Medecin> findBySpe(String spe);
+    List<Medecin> findBySpeContaining(String spe);
     List<Medecin> findByNomContainingOrPrenomContaining(String nomLike, String prenomLike);
 }
