@@ -24,4 +24,8 @@ public class PaysService {
     public Optional<Pays> findPaysById(Long id){
         return paysRepository.findById(id);
     }
+
+    public List<Pays> findPaysByNom(String nom) {
+        return paysRepository.findByNom(nom);
+    }
 }
