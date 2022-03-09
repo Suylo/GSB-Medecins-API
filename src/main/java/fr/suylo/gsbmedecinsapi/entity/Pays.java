@@ -14,12 +14,13 @@ import java.util.Set;
         property = "id")
 public class Pays {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nom;
     /*
         Un pays a plusieurs département
      */
-    @OneToMany(mappedBy = "pays")
+    @OneToMany(mappedBy = "pays", cascade = CascadeType.REMOVE)
     private Set<Departement> departements;
 
     public Pays(Long id, String nom, Set<Departement> departements) {

@@ -15,6 +15,7 @@ import java.util.Set;
         property = "id")
 public class Departement {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nom;
     /*
@@ -25,7 +26,7 @@ public class Departement {
     /*
         Un médecin possède un seul département
      */
-    @OneToMany(mappedBy = "departement")
+    @OneToMany(mappedBy = "departement", cascade = CascadeType.REMOVE)
     private Set<Medecin> medecins;
 
 
