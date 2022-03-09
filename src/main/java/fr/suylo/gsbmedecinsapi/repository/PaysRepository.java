@@ -10,4 +10,5 @@ import java.util.List;
 public interface PaysRepository extends JpaRepository<Pays, Long> {
 
     List<Pays> findByNom(String nom);
+    void deletePaysById(Long id);
 }

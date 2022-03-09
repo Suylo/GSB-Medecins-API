@@ -28,4 +28,8 @@ public class PaysService {
     public List<Pays> findPaysByNom(String nom) {
         return paysRepository.findByNom(nom);
     }
+
+    public void deletePaysById(Long id) {
+        paysRepository.deleteById(id);
+    }
 }

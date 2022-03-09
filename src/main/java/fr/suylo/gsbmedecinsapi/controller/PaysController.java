@@ -40,4 +40,10 @@ public class PaysController {
     public ResponseEntity<List<Pays>> getPaysByNom(@RequestParam String nom){
         return new ResponseEntity<>(paysService.findPaysByNom(nom), HttpStatus.OK);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void deletePays(@PathVariable Long id){
+        get(id);
+        paysService.deletePaysById(id);
+    }
 }
