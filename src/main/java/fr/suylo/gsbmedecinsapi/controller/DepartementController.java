@@ -40,4 +40,11 @@ public class DepartementController {
     public ResponseEntity<List<Departement>> getDepartementByNom(@RequestParam String nom){
         return new ResponseEntity<>(departementService.findDepartementsByNom(nom), HttpStatus.OK);
     }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public void deleteMedecin(@PathVariable Long id){
+
+        get(id);
+        departementService.deleteDepartement(id);
+    }
 }

@@ -27,4 +27,8 @@ public class DepartementService {
     public List<Departement> findDepartementsByNom(String nom){
         return departementRepository.findByNom(nom);
     }
+
+    public void deleteDepartement(Long id){
+        departementRepository.deleteById(id);
+    }
 }
