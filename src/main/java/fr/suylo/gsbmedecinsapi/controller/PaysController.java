@@ -1,6 +1,5 @@
 package fr.suylo.gsbmedecinsapi.controller;
 
-import fr.suylo.gsbmedecinsapi.entity.Departement;
 import fr.suylo.gsbmedecinsapi.entity.Pays;
 import fr.suylo.gsbmedecinsapi.service.PaysService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +44,24 @@ public class PaysController {
     public void deletePays(@PathVariable Long id){
         get(id);
         paysService.deletePaysById(id);
+    }
+
+    @PostMapping("/create")
+    public void createNewPays(@RequestBody Pays newPays) {
+        paysService.save(newPays);
+    }
+
+    @PutMapping("/edit/{id}")
+    Pays replacePays(@RequestBody Pays newPays, @PathVariable Long id) {
+
+        return paysService.findPaysById(id)
+                .map(pays -> {
+                    pays.setNom(newPays.getNom());
+                    pays.setDepartements(newPays.getDepartements());
+                    return paysService.save(pays);
+                })
+                .orElseGet(() -> {
+                    return paysService.save(newPays);
+                });
     }
 }

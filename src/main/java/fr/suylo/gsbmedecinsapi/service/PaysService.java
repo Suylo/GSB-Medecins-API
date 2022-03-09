@@ -1,5 +1,6 @@
 package fr.suylo.gsbmedecinsapi.service;
 
+import fr.suylo.gsbmedecinsapi.entity.Medecin;
 import fr.suylo.gsbmedecinsapi.entity.Pays;
 import fr.suylo.gsbmedecinsapi.repository.PaysRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,9 @@ public class PaysService {
 
     public void deletePaysById(Long id) {
         paysRepository.deleteById(id);
+    }
+
+    public Pays save(Pays newPays) {
+        return paysRepository.save(newPays);
     }
 }
