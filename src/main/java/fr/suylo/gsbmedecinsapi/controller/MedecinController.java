@@ -55,5 +55,28 @@ public class MedecinController {
     get(id);
     medecinService.deleteMedecin(id);
     }
+
+    @PostMapping("/medecins")
+    public void createNewMedecin(@RequestBody Medecin newMedecin) {
+        medecinService.save(newMedecin);
+    }
+
+    @PutMapping("/medecins/{id}")
+    Medecin replaceMedecin(@RequestBody Medecin newMedecin, @PathVariable Long id) {
+
+        return medecinService.findMedecinById(id)
+                .map(medecin -> {
+                    medecin.setNom(newMedecin.getNom());
+                    medecin.setPrenom(newMedecin.getPrenom());
+                    medecin.setAdresse(newMedecin.getAdresse());
+                    medecin.setTel(newMedecin.getTel());
+                    medecin.setSpe(newMedecin.getSpe());
+                    medecin.setDepartement(newMedecin.getDepartement());
+                    return medecinService.save(medecin);
+                })
+                .orElseGet(() -> {
+                    return medecinService.save(newMedecin);
+                });
+    }
 }
 

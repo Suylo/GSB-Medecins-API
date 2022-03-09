@@ -49,4 +49,6 @@ public class MedecinService {
     public void deleteMedecin(Long id) {
         medecinRepository.deleteById(id);
     }
+
+    public Medecin save(Medecin newMedecin) { return medecinRepository.save(newMedecin);     }
 }
