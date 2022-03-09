@@ -45,4 +45,8 @@ public class MedecinService {
     public List<Medecin> findBySpe(String spe) {
         return medecinRepository.findBySpe(spe);
     }
+
+    public void deleteMedecin(Long id) {
+        medecinRepository.deleteById(id);
+    }
 }

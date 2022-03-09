@@ -49,5 +49,11 @@ public class MedecinController {
     public ResponseEntity<List<Medecin>> getMedecinBySpe(@RequestParam String spe){
         return new ResponseEntity<>(medecinService.findBySpeContaining(spe), HttpStatus.OK);
     }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public void deleteMedecin(@PathVariable Long id) {
+    get(id);
+    medecinService.deleteMedecin(id);
+    }
 }
 
