@@ -10,9 +10,6 @@ import java.util.Set;
 
 @Entity
 @Table
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
 public class Departement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,6 +34,11 @@ public class Departement {
         this.medecins = medecins;
     }
 
+    public Departement(String nom, Pays pays){
+        this.nom = nom;
+        this.pays = pays;
+    }
+
     public Departement() {
     }
 
@@ -56,7 +58,7 @@ public class Departement {
         this.nom = nom;
     }
 
-    @JsonBackReference
+    @JsonManagedReference
     public Pays getPays() {
         return pays;
     }
@@ -65,7 +67,7 @@ public class Departement {
         this.pays = pays;
     }
 
-    @JsonManagedReference
+    @JsonBackReference
     public Set<Medecin> getMedecins() {
         return medecins;
     }

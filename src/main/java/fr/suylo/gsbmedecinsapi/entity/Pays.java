@@ -1,5 +1,6 @@
 package fr.suylo.gsbmedecinsapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -9,9 +10,6 @@ import java.util.Set;
 
 @Entity
 @Table
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
 public class Pays {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -48,7 +46,7 @@ public class Pays {
         this.nom = nom;
     }
 
-    @JsonManagedReference
+    @JsonBackReference
     public Set<Departement> getDepartements() {
         return departements;
     }

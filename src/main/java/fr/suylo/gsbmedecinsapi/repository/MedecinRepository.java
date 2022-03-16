@@ -1,5 +1,6 @@
 package fr.suylo.gsbmedecinsapi.repository;
 
+import fr.suylo.gsbmedecinsapi.entity.Departement;
 import fr.suylo.gsbmedecinsapi.entity.Medecin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -16,4 +17,5 @@ public interface MedecinRepository extends JpaRepository<Medecin, Long> {
     List<Medecin> findBySpeContaining(String spe);
     List<Medecin> findByNomContainingOrPrenomContaining(String nomLike, String prenomLike);
     void deleteById(Long id);
+    List<Medecin> findByDepartement(Departement departement);
 }

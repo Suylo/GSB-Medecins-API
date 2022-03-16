@@ -31,4 +31,9 @@ public class DepartementService {
     public void deleteDepartement(Long id){
         departementRepository.deleteById(id);
     }
+
+    public Departement save(Departement newDepartement) {
+        return departementRepository.save(newDepartement);
+    }
 }
+

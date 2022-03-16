@@ -1,5 +1,6 @@
 package fr.suylo.gsbmedecinsapi.service;
 
+import fr.suylo.gsbmedecinsapi.entity.Departement;
 import fr.suylo.gsbmedecinsapi.entity.Medecin;
 import fr.suylo.gsbmedecinsapi.repository.MedecinRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,4 +52,8 @@ public class MedecinService {
     }
 
     public Medecin save(Medecin newMedecin) { return medecinRepository.save(newMedecin);     }
+
+    public List<Medecin> findByDepartement(Departement departement) {
+        return medecinRepository.findByDepartement(departement);
+    }
 }

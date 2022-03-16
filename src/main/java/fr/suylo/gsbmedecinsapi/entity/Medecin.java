@@ -8,9 +8,6 @@ import javax.persistence.*;
 
 @Entity
 @Table
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
 public class Medecin {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -87,7 +84,7 @@ public class Medecin {
         this.spe = spe;
     }
 
-    @JsonBackReference
+    @JsonManagedReference
     public Departement getDepartement() {
         return departement;
     }
