@@ -18,4 +18,5 @@ public interface MedecinRepository extends JpaRepository<Medecin, Long> {
     List<Medecin> findByNomContainingOrPrenomContaining(String nomLike, String prenomLike);
     void deleteById(Long id);
     List<Medecin> findByDepartement(Departement departement);
+    List<Medecin> findByDepartementId(Long id);
 }

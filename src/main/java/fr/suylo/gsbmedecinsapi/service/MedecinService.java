@@ -56,4 +56,8 @@ public class MedecinService {
     public List<Medecin> findByDepartement(Departement departement) {
         return medecinRepository.findByDepartement(departement);
     }
+
+    public List<Medecin> findByDepartementId(Long id){
+        return medecinRepository.findByDepartementId(id);
+    }
 }

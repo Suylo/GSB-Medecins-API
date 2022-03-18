@@ -11,4 +11,5 @@ public interface DepartementRepository extends JpaRepository<Departement, Long> 
 
     List<Departement> findByNom(String nom);
     void deleteById(Long id);
+    List<Departement> findDepartementByPaysId(Long id);
 }

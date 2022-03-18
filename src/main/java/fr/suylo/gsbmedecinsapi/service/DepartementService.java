@@ -35,5 +35,9 @@ public class DepartementService {
     public Departement save(Departement newDepartement) {
         return departementRepository.save(newDepartement);
     }
+
+    public List<Departement> findDepartementByPaysId(Long id) {
+        return departementRepository.findDepartementByPaysId(id);
+    }
 }
 
