@@ -55,7 +55,7 @@ public class PaysController {
         }
     }
 
-    @GetMapping("/{id}/departements/medecins")
+    @GetMapping("/{id}/medecins")
     public Set<Medecin> getMedecinFromPays(@PathVariable("id") Long id){
         Optional<Pays> paysOptional = paysService.findPaysById(id);
         List<Departement> departementOptional = departementService.findDepartementByPaysId(id);
