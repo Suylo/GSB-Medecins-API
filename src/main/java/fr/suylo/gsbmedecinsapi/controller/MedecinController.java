@@ -56,12 +56,12 @@ public class MedecinController {
     medecinService.deleteMedecin(id);
     }
 
-    @PostMapping("/medecins")
+    @PostMapping(value = "/", consumes = "application/json")
     public void createNewMedecin(@RequestBody Medecin newMedecin) {
         medecinService.save(newMedecin);
     }
 
-    @PutMapping("/medecins/{id}")
+    @PutMapping("/edit/{id}")
     Medecin replaceMedecin(@RequestBody Medecin newMedecin, @PathVariable Long id) {
 
         return medecinService.findMedecinById(id)

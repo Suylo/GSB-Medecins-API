@@ -84,7 +84,6 @@ public class Medecin {
         this.spe = spe;
     }
 
-    @JsonManagedReference
     public Departement getDepartement() {
         return departement;
     }
