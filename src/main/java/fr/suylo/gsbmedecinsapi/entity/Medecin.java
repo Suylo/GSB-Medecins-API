@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table
@@ -12,10 +14,23 @@ public class Medecin {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Pattern(regexp = "^[a-zA-Z\\s]*$", message = "Le nom ne doit contenir que des lettres")
+    @NotNull(message = "Le nom ne peut pas être vide")
     private String nom;
+
+    @Pattern(regexp = "^[a-zA-Z\\s]*$", message = "Le prénom ne doit contenir que des lettres")
+    @NotNull(message = "Le prénom ne peut pas être vide")
     private String prenom;
+
+    @Pattern(regexp = "^[a-zA-Z0-9\\s]*$", message = "Uniquement des lettres, chiffres et espaces")
+    @NotNull(message = "L'adresse ne peut pas être vide")
     private String adresse;
+
+    @Pattern(regexp = "^[0-9]{1,14}$", message = "Seulement des chiffres entre 1 et 14 caractères")
+    @NotNull(message = "Le téléphone ne peut pas être vide")
     private String tel;
+
+    @Pattern(regexp = "^[a-zA-Z\\s]*$", message = "Uniquement des lettres et des espaces sont autorisés.")
     private String spe;
     /*
         Un Département à plusieurs médecins
