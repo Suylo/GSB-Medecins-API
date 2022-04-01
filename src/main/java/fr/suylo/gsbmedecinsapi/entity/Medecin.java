@@ -15,14 +15,14 @@ public class Medecin {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotNull
-    @Pattern(regexp = "^[A-Za-z ]{2,20}$", message = "Le nom doit contenir entre 2 et 20 caractères, uniquement des lettres ou des espaces")
+    @Pattern(regexp = "^[A-Za-z\\sàâäéèêëîïôöùûüçÀÂÄÉÈÊËÎÏÔÖÙÛÜÇ]{2,20}$", message = "Le nom doit contenir entre 2 et 20 caractères, uniquement des lettres ou des espaces")
     private String nom;
 
-    @Pattern(regexp = "^[a-zA-Z\\s]{2,20}$", message = "Le prénom ne doit contenir que des lettres et des espaces")
+    @Pattern(regexp = "^[a-zA-Z\\sàâäéèêëîïôöùûüçÀÂÄÉÈÊËÎÏÔÖÙÛÜÇ]{2,20}$", message = "Le prénom ne doit contenir que des lettres et des espaces")
     @NotNull(message = "Le prénom ne peut pas être vide")
     private String prenom;
 
-    @Pattern(regexp = "^[a-zA-Z0-9\\s]*$", message = "Uniquement des lettres, chiffres et espaces")
+    @Pattern(regexp = "^[a-zA-Z0-9\\sàâäéèêëîïôöùûüçÀÂÄÉÈÊËÎÏÔÖÙÛÜÇ,]{10,50}$", message = "Uniquement des lettres, chiffres et espaces")
     @NotNull(message = "L'adresse ne peut pas être vide")
     private String adresse;
 
