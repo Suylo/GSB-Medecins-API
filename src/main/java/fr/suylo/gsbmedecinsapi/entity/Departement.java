@@ -1,11 +1,10 @@
 package fr.suylo.gsbmedecinsapi.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 @Entity
@@ -14,6 +13,9 @@ public class Departement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Pattern(regexp = "^[a-zA-Z0-9\\sàâäéèêëîïôöùûüçÀÂÄÉÈÊËÎÏÔÖÙÛÜÇ-]{3,40}$", message = "Uniquement des lettres, (-) et espaces")
+    @NotNull(message = "Le nom du département est obligatoire")
     private String nom;
     /*
         Un pays possède plusieurs départements
