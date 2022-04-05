@@ -17,16 +17,14 @@ public class User {
     private String prenom;
     private String motdepasse;
     private String adresse;
-    private Date dateEmbauche;
 
-    public User(Long id, String login, String nom, String prenom, String motdepasse, String adresse, Date dateEmbauche) {
+    public User(Long id, String login, String nom, String prenom, String motdepasse, String adresse) {
         this.id = id;
         this.login = login;
         this.nom = nom;
         this.prenom = prenom;
         this.motdepasse = motdepasse;
         this.adresse = adresse;
-        this.dateEmbauche = dateEmbauche;
     }
 
     public User() {
@@ -70,14 +68,6 @@ public class User {
 
     public void setAdresse(String adresse) {
         this.adresse = adresse;
-    }
-
-    public Date getDateEmbauche() {
-        return dateEmbauche;
-    }
-
-    public void setDateEmbauche(Date dateEmbauche) {
-        this.dateEmbauche = dateEmbauche;
     }
 
     public String getMotdepasse() {
