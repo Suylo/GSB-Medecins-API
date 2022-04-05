@@ -92,11 +92,13 @@ public class PaysController {
     }
 
     @PostMapping("/create")
+    @ResponseStatus(HttpStatus.CREATED)
     public void createNewPays(@RequestBody Pays newPays) {
         paysService.save(newPays);
     }
 
-    @PutMapping("/edit/{id}")
+    @PutMapping("/put/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
     Pays replacePays(@RequestBody Pays newPays, @PathVariable Long id) {
 
         return paysService.findPaysById(id)

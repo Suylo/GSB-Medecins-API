@@ -65,11 +65,13 @@ public class DepartementController {
     }
 
     @PostMapping("/create")
+    @ResponseStatus(HttpStatus.CREATED)
     public void createNewDepartement(@RequestBody Departement newDepartement) {
         departementService.save(newDepartement);
     }
 
-    @PutMapping("/edit/{id}")
+    @PutMapping("/put/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
     Departement replaceDepartement(@RequestBody Departement newDepartement, @PathVariable Long id) {
 
         return departementService.findDepartementById(id)

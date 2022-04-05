@@ -57,11 +57,13 @@ public class MedecinController {
     }
 
     @PostMapping(value = "/", consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
     public void createNewMedecin(@RequestBody Medecin newMedecin) {
         medecinService.save(newMedecin);
     }
 
     @PutMapping("/edit/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
     Medecin replaceMedecin(@RequestBody Medecin newMedecin, @PathVariable Long id) {
 
         return medecinService.findMedecinById(id)
